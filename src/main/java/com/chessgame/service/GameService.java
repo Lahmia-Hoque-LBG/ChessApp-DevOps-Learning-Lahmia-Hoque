@@ -1,13 +1,21 @@
 package com.chessgame.service;
-import com.chessgame.model.*;
 
+import com.chessgame.model.*;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+
+@Service;
+@Getter;
+@RequiredArgsConstructor;
 public class GameService {
+
     private final Board board;
     private PlayerColour currentTurn;
 
-    public GameService() {
-        this.board = new Board();
-        this.currentTurn = PlayerColour.WHITE;
+    public void startGame(PlayerColour chosenColour) {
+        this.currentTurn = chosenColour;
     }
 
     public boolean attemptMove(Move move) {
@@ -22,20 +30,13 @@ public class GameService {
         }
 
         return false;
-
     }
-
     private void switchTurn() {
         currentTurn = currentTurn.opposite();
     }
 
-    public Board getBoard() {
-        return board;
-    }
 
-    public PlayerColour getCurrentTurn() {
-        return currentTurn;
-    }
+
 
 
 

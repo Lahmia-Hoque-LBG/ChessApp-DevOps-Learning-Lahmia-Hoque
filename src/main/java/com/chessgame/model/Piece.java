@@ -1,18 +1,15 @@
 package com.chessgame.model;
 
-import com.chessgame.model.PlayerColour;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
 import java.util.List;
 
+
+@Getter
+@RequiredArgsConstructor
 public abstract class Piece {
-    protected PlayerColour colour;
-
-    public Piece(PlayerColour colour) {
-        this.colour = colour;
-    }
-
-    public PlayerColour getColour() {
-        return colour;
-    }
+    protected final PlayerColour colour;
 
     public abstract char getSymbol(); //gets symbol of the piece
 
